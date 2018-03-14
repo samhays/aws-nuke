@@ -58,7 +58,7 @@ func (c *Credentials) NewSession(region string) (*session.Session, error) {
 	}
 
 	switch {
-	case c.HasProfile() && c.HasKeys():
+	case c.HasProfile() == c.HasKeys():
 		return nil, fmt.Errorf("You have to specify a profile or credentials for at least one region.")
 
 	case c.HasProfile():
